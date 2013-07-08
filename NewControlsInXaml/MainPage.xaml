@@ -1,0 +1,57 @@
+﻿<Page
+    x:Class="NewControlsInXaml.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:NewControlsInXaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+        <DatePicker HorizontalAlignment="Left" Margin="108,95,0,0" 
+                    VerticalAlignment="Top" 
+                    DayFormat="{}{day.integer}"
+                    MonthFormat="{}{month.abbreviated}"
+                    YearFormat="{}{year.abbreviated(4)}"/>
+        <TimePicker HorizontalAlignment="Left" Margin="108,157,0,0" 
+                    VerticalAlignment="Top" Time="6:00"/>
+        <AppBar VerticalAlignment="Bottom">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal">
+                    <AppBarButton Content="Button" Icon="Add">
+                        <AppBarButton.Flyout>
+                            <MenuFlyout>
+                                <MenuFlyoutItem>Menu 1</MenuFlyoutItem>
+                                <MenuFlyoutItem>Menu 2</MenuFlyoutItem>
+                            </MenuFlyout>
+                        </AppBarButton.Flyout>
+                    </AppBarButton>
+                    <AppBarButton Content="Button" Icon="Add">
+
+                        <AppBarButton.Flyout>
+                            <Flyout>
+                                <StackPanel>
+                                    <TextBlock FontWeight="Light" Text="Name" />
+                                    <TextBox Name="FileName" PlaceholderText="Name of file..." Width="300"/>
+                                    <Button Content="Save" Click="Button_Click"></Button>
+                                </StackPanel>
+                            </Flyout>
+                        </AppBarButton.Flyout>
+                    </AppBarButton>
+                </StackPanel>
+                <StackPanel Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal"/>
+            </Grid>
+        </AppBar>
+        <SearchBox HorizontalAlignment="Left"
+                   Margin="108,229,0,0" VerticalAlignment="Top" Width="280"/>
+        <MediaElement HorizontalAlignment="Left" Height="580" 
+                      Margin="550,95,0,0" 
+                      VerticalAlignment="Top" Width="806" AreTransportControlsEnabled="True"
+                      Source="assets/2-164-TimHeuer.wmv" Position="0:1:0" />
+
+    </Grid>
+</Page>
